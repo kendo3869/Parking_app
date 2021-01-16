@@ -1,0 +1,276 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <!-- Required meta tags always come first -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>遠藤駐車場管理システム</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.min.css">
+    <link href="{% static "app/css/app.css" %}" rel="stylesheet">
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+        table td {
+            border: 1px solid #000000;
+            width: 140px;
+            height: 250px;
+        }
+
+        .regist {
+            position: absolute;
+            left: 30px;
+            bottom: 40px;
+            text-align: center;
+            display: inline-block;
+            padding: 7px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            color: #FFF;
+            background-image: linear-gradient(45deg, #00BFFF 0%, #1E90FF 100%);
+            transition: .4s;
+            width: 130px;
+            height: 50px;
+            box-shadow: 0 8px 0 #4169E1;
+            border-style: none;
+        }
+        .regist:hover {
+            background-image: linear-gradient(45deg, #00FFFF 0%, #E0FFFF 100%);
+            box-shadow: 0 6px 0 #4169E1;
+        }
+        .regist:active {
+            background-image: linear-gradient(45deg, #00FFFF 0%, #E0FFFF 100%);
+            box-shadow: 0 2px 0 #4169E1;
+            bottom: 35px;
+        }
+        .regist:focus {
+            outline: 0;
+        }
+
+        .agreementupdate {
+            position: absolute;
+            left: 200px;
+            bottom: 40px;
+            text-align: center;
+            display: inline-block;
+            padding: 7px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            color: #FFF;
+            background-image: linear-gradient(45deg, #DAA520 0%, #B8860B 100%);
+            transition: .4s;
+            width: 130px;
+            height: 50px;
+            box-shadow: 0 8px 0 #B8860B;
+            border-style: none;
+        }
+        .agreementupdate:hover {
+            background-image: linear-gradient(45deg, #FFD700 0%, #FFD700 100%);
+            box-shadow: 0 6px 0 #B8860B;
+        }
+        .agreementupdate:active {
+            background-image: linear-gradient(45deg, #FFD700 0%, #FFD700 100%);
+            box-shadow: 0 2px 0 #B8860B;
+            bottom: 35px;
+        }
+        .agreementupdate:focus {
+            outline: 0;
+        }
+
+        input[type=checkbox] {
+            transform: scale(1.5);
+        }
+
+        input[type=radio] {
+            width: 25px;
+            height: 25px;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+
+<!--画面タイトル-->
+<body>
+<nav class="navbar navbar-expand-md navbar-light bg-light ">
+    <a class="navbar-brand" href="#"><b>駐車場見取り図</b></a>
+    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#Navber" aria-controls="Navber"
+            aria-expanded="false"
+            aria-label="ナビゲーションの切替">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="Navber">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'admin:index' %}">管理画面</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'admin:logout' %}">ログアウト</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<form id="check" method="POST">
+{% csrf_token %}
+<!--正面駐車場用-->
+<table>
+    <tr style="height:10px;"></tr>
+</table>
+<table>
+    <label align="left" style="margin-left:30px;"><b>正面駐車場</b></label>
+</table>
+<table align="left" style="margin-left:70px;">
+    <tr>
+        <td align="center" style="border:none; height:5px;"><font size="5">12</font></td>
+        <td align="center" style="border:none; height:5px;"><font size="5">11</font></td>
+        <td style="width:90px; height:5px; border-style:none;"></td>
+        <td align="center" style="border:none; height:5px;"><font size="5">10</font></td>
+        <td align="center" style="border:none; height:5px;"><font size="5">9</font></td>
+        <td align="center" style="border:none; height:5px;"><font size="5">8</font></td>
+        <td align="center" style="border:none; height:5px;"><font size="5">7</font></td>
+        <td align="center" style="border:none; height:5px;"><font size="5">6</font></td>
+        <td align="center" style="border:none; height:5px;"><font size="5">5</font></td>
+        <td align="center" style="border:none; height:5px;"><font size="5">3</font></td>
+        <td align="center" style="border:none; height:5px;"><font size="5">2</font></td>
+        <td align="center" style="border:none; height:5px;"><font size="5">1</font></td>
+        <td align="center" style="border:none; height:5px;"><font size="5">0</font></td>
+    </tr>
+        <a href="ViewInformation" ><!--情報閲覧画面へ-->
+            <td align="center">
+                <label>表示名</label>
+                <br>
+                <label>(１８７)</label>
+                <br>
+                <label>(略称)</label>
+            </td>
+        </a>
+        <td align="center"></td>
+        <td style="width:90px; border-style:none;"></td>
+        <td align="center"></td>
+        <td align="center"></td>
+        <td align="center"></td>
+        <td align="center"></td>
+        <td align="center"></td>
+        <td align="center"></td>
+        <td align="center"></td>
+        <td align="center"></td>
+        <td align="center"></td>
+        <td align="center"></td>
+    <tr>
+        <td align="center" style="border:none; height:5px; padding-top:5px;">
+            <input type="radio" name="pa_code" value="A12" form="check">
+        </td>
+        <td align="center" style="border:none; height:5px; padding-top:5px;">
+            <input type="radio" name="pa_code" value="A11" form="check">
+        </td>
+        <td style="width:90px; height:5px; border-style:none;"></td>
+        <td align="center" style="border:none; height:5px; padding-top:5px;">
+            <input type="radio" name="pa_code" value="A10" form="check">
+        </td>
+        <td align="center" style="border:none; height:5px; padding-top:5px;">
+            <input type="radio" name="pa_code" value="A09" form="check">
+        </td>
+        <td align="center" style="border:none; height:5px; padding-top:5px;">
+            <input type="radio" name="pa_code" value="A08" form="check">
+        </td>
+        <td align="center" style="border:none; height:5px; padding-top:5px;">
+            <input type="radio" name="pa_code" value="A07" form="check">
+        </td>
+        <td align="center" style="border:none; height:5px; padding-top:5px;">
+            <input type="radio" name="pa_code" value="A06" form="check">
+        </td>
+        <td align="center" style="border:none; height:5px; padding-top:5px;">
+            <input type="radio" name="pa_code" value="A05" form="check">
+        </td>
+        <td align="center" style="border:none; height:5px; padding-top:5px;">
+            <input type="radio" name="pa_code" value="A03" form="check">
+        </td>
+        <td align="center" style="border:none; height:5px; padding-top:5px;">
+            <input type="radio" name="pa_code" value="A02" form="check">
+        </td>
+        <td align="center" style="border:none; height:5px; padding-top:5px;">
+            <input type="radio" name="pa_code" value="A01" form="check">
+        </td>
+        <td align="center" style="border:none; height:5px; padding-top:5px;">
+            <input type="radio" name="pa_code" value="A00" form="check">
+        </td>
+    </tr>
+    <tr style="height:30px;"></tr>
+</table>
+
+<!--ロシェフォート駐車場-->
+<table>
+    <label align="left" style="margin-left:30px;"><b>ロシェフォート駐車場</b></label>
+</table>
+<table align="left" style="margin-left:70px;">
+    <tr>
+        <td align="center" style="border:none; height:5px;"><font size="5">9</font></td>
+        <td align="center" style="border:none; height:5px;"><font size="5">10</font></td>
+        <td align="center" style="border:none; height:5px;"><font size="5">11</font></td>
+        <td align="center" style="border:none; height:5px;"><font size="5">12</font></td>
+        <td align="center" style="border:none; height:5px;"><font size="5">13</font></td>
+        <td align="center" style="border:none; height:5px;"><font size="5">14</font></td>
+        <td align="center" style="border:none; height:5px;"><font size="5">15</font></td>
+    </tr>
+        <td align="center"></td>
+        <td align="center"></td>
+        <td align="center"></td>
+        <td align="center"></td>
+        <td align="center"></td>
+        <td align="center"></td>
+        <td align="center"></td>
+    <tr>
+        <td align="center" style="border:none; height:5px; padding-top:5px;">
+            <input type="radio" name="pa_code" value="B09" form="check">
+        </td>
+        <td align="center" style="border:none; height:5px; padding-top:5px;">
+            <input type="radio" name="pa_code" value="B10" form="check">
+        </td>
+        <td align="center" style="border:none; height:5px; padding-top:5px;">
+            <input type="radio" name="pa_code" value="B11" form="check">
+        </td>
+        <td align="center" style="border:none; height:5px; padding-top:5px;">
+            <input type="radio" name="pa_code" value="B12" form="check">
+        </td>
+        <td align="center" style="border:none; height:5px; padding-top:5px;">
+            <input type="radio" name="pa_code" value="B13" form="check">
+        </td>
+        <td align="center" style="border:none; height:5px; padding-top:5px;">
+            <input type="radio" name="pa_code" value="B14" form="check">
+        </td>
+        <td align="center" style="border:none; height:5px; padding-top:5px;">
+            <input type="radio" name="pa_code" value="B15" form="check">
+        </td>
+    </tr>
+</table>
+</form>
+<!--ボタン-->
+<input type="submit" class="regist" style="font-size: 25px;" value="登録">
+<input type="submit" class="agreementupdate" style="font-size: 22px;" value="契約更新">
+
+<!-- {% block content %} -->
+<!-- {% endblock %} -->
+
+<!-- jQuery first, then Tether, then Bootstrap JS. -->
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.min.js"
+        charset="UTF-8">></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/locales/bootstrap-datepicker.ja.min.js"></script>
+<script src="{% static "app/js/plugins/responsive-paginate.js" %}"></script>
+<script src="{% static "app/js/app.js" %}"></script>
+</body>
+
+</html>
