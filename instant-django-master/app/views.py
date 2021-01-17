@@ -263,6 +263,7 @@ def ViewInformation(request, id):
     #U_Info = models.User_Information.Objects.filter(pa_code_1 = id)
     U_Info = User_Information.Objects.filter(pa_code_1 = id)
 
+    # 取得したデータを情報閲覧画面へ
     return render(request,'view_information.html', U_Info)
 
 

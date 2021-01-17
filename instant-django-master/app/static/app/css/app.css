@@ -1,0 +1,90 @@
+table {
+    border-collapse: collapse;
+}
+table td {
+    
+}
+table td a {
+    display: block;
+    height: 250px;
+    width: 140px; 
+    background-color: #ececec; 
+    text-align: center;
+    vertical-align:center;
+    font-size: 12px; 
+    color: #404040;
+    border: 1px solid #000;   
+}
+table td a:hover {
+background-color: #f49d9d;
+} 
+.regist {
+    position: relative;
+    left: 10px;
+    bottom: 40px;
+    text-align: center;
+    display: inline-block;
+    padding: 7px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    color: #FFF;
+    background-image: linear-gradient(45deg, #00BFFF 0%, #1E90FF 100%);
+    transition: .4s;
+    width: 130px;
+    height: 50px;
+    box-shadow: 0 8px 0 #4169E1;
+    border-style: none;
+    top: 10px;
+}
+.regist:hover {
+    background-image: linear-gradient(45deg, #00FFFF 0%, #E0FFFF 100%);
+    box-shadow: 0 6px 0 #4169E1;
+}
+.regist:active {
+    background-image: linear-gradient(45deg, #00FFFF 0%, #E0FFFF 100%);
+    box-shadow: 0 2px 0 #4169E1;
+    bottom: 35px;
+}
+.regist:focus {
+    outline: 0;
+}
+
+.agreementupdate {
+    position: absolute;
+    left: 200px;
+    bottom: 40px;
+    text-align: center;
+    display: inline-block;
+    padding: 7px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    color: #FFF;
+    background-image: linear-gradient(45deg, #DAA520 0%, #B8860B 100%);
+    transition: .4s;
+    width: 130px;
+    height: 50px;
+    box-shadow: 0 8px 0 #B8860B;
+    border-style: none;
+}
+.agreementupdate:hover {
+    background-image: linear-gradient(45deg, #FFD700 0%, #FFD700 100%);
+    box-shadow: 0 6px 0 #B8860B;
+}
+.agreementupdate:active {
+    background-image: linear-gradient(45deg, #FFD700 0%, #FFD700 100%);
+    box-shadow: 0 2px 0 #B8860B;
+    bottom: 35px;
+}
+.agreementupdate:focus {
+    outline: 0;
+}
+
+input[type=checkbox] {
+    transform: scale(1.5);
+}
+
+input[type=radio] {
+    width: 25px;
+    height: 25px;
+    margin-top: 5px;
+}

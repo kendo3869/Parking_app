@@ -13,6 +13,5 @@ urlpatterns = [
     path('update/<int:pk>/', ItemUpdateView.as_view(), name='update'),
     path('delete/<int:pk>/', ItemDeleteView.as_view(), name='delete'),
     path('ViewInformation/<int:id>', views.ViewInformation, name='ViewInformation'),
-#    path('', views.view_home, name='index'),
     path('', ItemFilterView.as_view(), name='index'),
 ]
