@@ -24,6 +24,20 @@
             width: 140px;
             height: 250px;
         }
+        table td a {
+            display: flex;
+            justify-content: center; 
+            align-items: center;
+            width: 140px;
+            height: 250px;
+        }
+        table td a:hover {
+            background-color: #4169E1;
+        }
+
+        center {
+            margin: 0 auto;
+        }
 
         .regist {
             position: absolute;
@@ -120,7 +134,7 @@
     </div>
 </nav>
 
-<form id="check" method="POST">
+<form id="check" action="NewRegist" method="POST">
 {% csrf_token %}
 <!--正面駐車場用-->
 <table>
@@ -145,15 +159,18 @@
         <td align="center" style="border:none; height:5px;"><font size="5">1</font></td>
         <td align="center" style="border:none; height:5px;"><font size="5">0</font></td>
     </tr>
-        <a href="ViewInformation" ><!--情報閲覧画面へ-->
-            <td align="center">
-                <label>表示名</label>
-                <br>
-                <label>(１８７)</label>
-                <br>
-                <label>(略称)</label>
-            </td>
-        </a>
+    <tr>
+        <td align="center" vertical-align="middle">
+            <a href="{% url 'ViewInformation' 112 %}">
+                <div class="center">
+                    <label>表示名</label>
+                    <br>
+                    <label>(１８７)</label>
+                    <br>
+                    <label>(略称)</label>
+                </div>
+            </a>
+        </td>
         <td align="center"></td>
         <td style="width:90px; border-style:none;"></td>
         <td align="center"></td>
@@ -166,6 +183,7 @@
         <td align="center"></td>
         <td align="center"></td>
         <td align="center"></td>
+    </tr>
     <tr>
         <td align="center" style="border:none; height:5px; padding-top:5px;">
             <input type="radio" name="pa_code" value="A12" form="check">
